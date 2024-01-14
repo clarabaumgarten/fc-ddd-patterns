@@ -1,3 +1,4 @@
+import { where } from "sequelize";
 import Order from "../../../../domain/checkout/entity/order";
 import OrderItemModel from "./order-item.model";
 import OrderModel from "./order.model";
@@ -19,6 +20,26 @@ export default class OrderRepository {
       },
       {
         include: [{ model: OrderItemModel }],
+      }
+    );
+  }
+
+  async update(entity: Order): Promise<void> {
+    await OrderModel.update(
+      {
+        total: entity.total(),
+        items: entity.items.map((item) => ({
+          id: item.id,
+          name: item.name,
+          price: item.price,
+          product_id: item.productId,
+          quantity: item.quantity,
+        })),
+      },
+      {
+        where: {
+          id: entity.id,
+        },
       }
     );
   }
