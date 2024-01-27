@@ -6,7 +6,6 @@
 export default {
   transform: {
     "^.+\.(t|j)sx?$": ["@swc/jest"],
-    
   },
   // All imported modules in your tests should be mocked automatically
   // automock: false,
@@ -15,7 +14,7 @@ export default {
   // bail: 0,
 
   // The directory where Jest should store its cached dependency information
-  // cacheDirectory: "/private/var/folders/h_/n9cr86t52279b8msmjm777z00000gn/T/jest_dx",
+  // cacheDirectory: "/private/var/folders/d4/nk_8ydbx18v7cfpwwn6b9jy1mkp993/T/jest_t6hyxv",
 
   // Automatically clear mock calls, instances and results before every test
   clearMocks: true,
